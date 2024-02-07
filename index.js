@@ -7,15 +7,22 @@ const username = getUsername(process.argv);
 let currentPath = __dirname;
 
 const rl = readline.createInterface({input, output});
-rl.question(`You are currently in: ${currentPath} \n`,)
-.then((input) => {
-  if (input === '.exit') rl.close();
-  console.log('Invalid input: ', input);
-})
 
-rl.on('line', (line) => {
-  if (line === '.exit') rl.close();
-})
+function main () {
+  rl.question(`You are currently in: ${currentPath} \n`,)
+    .then((input) => {
+      if (input === '.exit') rl.close();
+      else if (input === 'up') {
+        currentPath = currPathUp();
+        main();
+      }
+      else {
+        console.log('Invalid input');
+      main();
+    }
+  })
+}
+main();
 rl.on('close', () => {
   console.log(`Thank you for using File Manager, ${username}, goodbye!`);
 })
@@ -35,4 +42,7 @@ function getUsername(args) {
   const user = username[0].slice(11);
   console.log(`Welcome to the File Manager, ${user}`);
   return user;
+}
+function currPathUp() {
+  return currentPath = path.resolve(currentPath, '..');
 }
