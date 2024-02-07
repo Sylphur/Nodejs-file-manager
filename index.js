@@ -1,10 +1,16 @@
-const fs = require('fs');
-const path = require('path');
-const readline = require('node:readline/promises');
-const { stdin: input, stdout: output } = require('node:process');
+import { inputHandle } from "./controllers/inputController.js";
+import { getUsername } from "./services/getUsername.js";
+
+// const fs = require('fs/promises');
+// const path = require('path');
+import path from "path";
+import readline from "node:readline/promises";
+// const readline = require('node:readline/promises');
+// const { stdin: input, stdout: output } = require('node:process');
+import { stdin as input, stdout as output } from "node:process";
 
 const username = getUsername(process.argv);
-let currentPath = __dirname;
+let currentPath = process.cwd();
 
 const rl = readline.createInterface({input, output});
 
@@ -12,37 +18,14 @@ function main () {
   rl.question(`You are currently in: ${currentPath} \n`,)
     .then((input) => {
       if (input === '.exit') rl.close();
-      else if (input === 'up') {
-        currentPath = currPathUp();
+      else {
+        inputHandle(input);
         main();
       }
-      else {
-        console.log('Invalid input');
-      main();
-    }
   })
 }
 main();
+
 rl.on('close', () => {
   console.log(`Thank you for using File Manager, ${username}, goodbye!`);
 })
-
-function getUsername(args) {
-  const username = args.filter((arg) => {
-    return arg.includes('--username=')
-  })
-  if (username.length < 1) {
-    console.log("Please enter a username in 'npm run start -- --username=your_username' format");
-    process.exit(0);
-  }
-  if (username.length > 1) {
-    console.log("Please enter only one username");
-    process.exit(0);
-  }
-  const user = username[0].slice(11);
-  console.log(`Welcome to the File Manager, ${user}`);
-  return user;
-}
-function currPathUp() {
-  return currentPath = path.resolve(currentPath, '..');
-}
