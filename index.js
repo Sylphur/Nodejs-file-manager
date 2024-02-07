@@ -1,13 +1,20 @@
 const fs = require('fs');
 const path = require('path');
 const readline = require('node:readline/promises');
-const username = getUsername(process.argv);
 const { stdin: input, stdout: output } = require('node:process');
 
+const username = getUsername(process.argv);
+let currentPath = __dirname;
+
 const rl = readline.createInterface({input, output});
-rl.question('Write something \n')
-.then((answer) => {
-  console.log(`Thanks for ${answer}`);
+rl.question(`You are currently in: ${currentPath} \n`,)
+.then((input) => {
+  if (input === '.exit') rl.close();
+  console.log('Invalid input: ', input);
+})
+
+rl.on('line', (line) => {
+  if (line === '.exit') rl.close();
 })
 rl.on('close', () => {
   console.log(`Thank you for using File Manager, ${username}, goodbye!`);
