@@ -1,8 +1,10 @@
+import { up } from "../services/up.js";
+
 export function inputHandle (input) {
   const formattedInput = input.trim();
   switch (formattedInput.split(' ')[0]) {
     case 'up': {
-      console.log('up!');
+      up();
       // currentPath = currPathUp();
       break;
     }
