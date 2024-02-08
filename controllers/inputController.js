@@ -3,6 +3,7 @@ import { cat } from "../services/cat.js";
 import { cd } from "../services/cd.js";
 import { cp } from "../services/cp.js";
 import { ls } from "../services/ls.js";
+import { mv } from "../services/mv.js";
 import { rm } from "../services/rm.js";
 import { rn } from "../services/rn.js";
 import { up } from "../services/up.js";
@@ -40,6 +41,10 @@ export async function inputHandle (input) {
     }
     case 'rm': {
       await rm(formattedInput)
+      break;
+    }
+    case 'mv': {
+      await mv(formattedInput)
       break;
     }
     default:
