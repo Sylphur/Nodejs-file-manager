@@ -1,3 +1,4 @@
+import { cd } from "../services/cd.js";
 import { up } from "../services/up.js";
 
 export function inputHandle (input) {
@@ -5,11 +6,10 @@ export function inputHandle (input) {
   switch (formattedInput.split(' ')[0]) {
     case 'up': {
       up();
-      // currentPath = currPathUp();
       break;
     }
     case 'cd': {
-      // currentPath = currPathCd(input);
+      cd(input);
       break;
     }
     default:
