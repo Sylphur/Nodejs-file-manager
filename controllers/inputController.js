@@ -1,3 +1,4 @@
+import { cat } from "../services/cat.js";
 import { cd } from "../services/cd.js";
 import { ls } from "../services/ls.js";
 import { up } from "../services/up.js";
@@ -10,11 +11,19 @@ export async function inputHandle (input) {
       break;
     }
     case 'cd': {
-      cd(input);
+      cd(formattedInput);
       break;
     }
     case 'ls': {
       await ls();
+      break;
+    }
+    case 'cat': {
+      await cat(formattedInput)
+      break;
+    }
+    case 'add': {
+      await add(formattedInput)
       break;
     }
     default:
