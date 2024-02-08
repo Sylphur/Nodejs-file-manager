@@ -2,6 +2,7 @@ import { add } from "../services/add.js";
 import { cat } from "../services/cat.js";
 import { cd } from "../services/cd.js";
 import { ls } from "../services/ls.js";
+import { rn } from "../services/rn.js";
 import { up } from "../services/up.js";
 
 export async function inputHandle (input) {
@@ -25,6 +26,10 @@ export async function inputHandle (input) {
     }
     case 'add': {
       await add(formattedInput)
+      break;
+    }
+    case 'rn': {
+      await rn(input)
       break;
     }
     default:
