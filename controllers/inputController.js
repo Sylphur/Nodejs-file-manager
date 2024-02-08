@@ -1,6 +1,7 @@
 import { add } from "../services/add.js";
 import { cat } from "../services/cat.js";
 import { cd } from "../services/cd.js";
+import { compress } from "../services/compress.js";
 import { cp } from "../services/cp.js";
 import { calculateHash } from "../services/hash.js";
 import { ls } from "../services/ls.js";
@@ -55,6 +56,10 @@ export async function inputHandle (input) {
     }
     case 'hash': {
       await calculateHash(formattedInput)
+      break;
+    }
+    case 'compress': {
+      await compress(formattedInput)
       break;
     }
     default:

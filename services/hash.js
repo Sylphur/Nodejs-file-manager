@@ -15,7 +15,7 @@ export async function calculateHash (input) {
         hash.update(chunk);
       })
       stream.on('end', () => {
-        console.log(hash.digest('hex'));
+        console.log('File hash:', hash.digest('hex'));
         resolve();
       })
       stream.on('error', (error) => {
