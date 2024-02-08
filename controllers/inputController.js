@@ -2,6 +2,7 @@ import { add } from "../services/add.js";
 import { cat } from "../services/cat.js";
 import { cd } from "../services/cd.js";
 import { cp } from "../services/cp.js";
+import { calculateHash } from "../services/hash.js";
 import { ls } from "../services/ls.js";
 import { mv } from "../services/mv.js";
 import { rm } from "../services/rm.js";
@@ -50,6 +51,10 @@ export async function inputHandle (input) {
     }
     case 'os': {
       await osController(formattedInput)
+      break;
+    }
+    case 'hash': {
+      await calculateHash(formattedInput)
       break;
     }
     default:
