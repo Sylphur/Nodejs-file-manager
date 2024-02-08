@@ -1,7 +1,6 @@
 import path from "path";
 import fs from "fs";
 import fsp from "fs/promises";
-import stream from "stream/promises";
 
 export async function rm (input) {
   try {

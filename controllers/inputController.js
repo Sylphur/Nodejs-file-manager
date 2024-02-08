@@ -7,6 +7,7 @@ import { mv } from "../services/mv.js";
 import { rm } from "../services/rm.js";
 import { rn } from "../services/rn.js";
 import { up } from "../services/up.js";
+import { osController } from "./osController.js";
 
 export async function inputHandle (input) {
   const formattedInput = input.trim();
@@ -45,6 +46,10 @@ export async function inputHandle (input) {
     }
     case 'mv': {
       await mv(formattedInput)
+      break;
+    }
+    case 'os': {
+      await osController(formattedInput)
       break;
     }
     default:
