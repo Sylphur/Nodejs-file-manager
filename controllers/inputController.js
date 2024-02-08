@@ -1,6 +1,7 @@
 import { add } from "../services/add.js";
 import { cat } from "../services/cat.js";
 import { cd } from "../services/cd.js";
+import { cp } from "../services/cp.js";
 import { ls } from "../services/ls.js";
 import { rn } from "../services/rn.js";
 import { up } from "../services/up.js";
@@ -30,6 +31,10 @@ export async function inputHandle (input) {
     }
     case 'rn': {
       await rn(input)
+      break;
+    }
+    case 'cp': {
+      await cp(input)
       break;
     }
     default:
