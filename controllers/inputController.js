@@ -1,3 +1,4 @@
+import { add } from "../services/add.js";
 import { cat } from "../services/cat.js";
 import { cd } from "../services/cd.js";
 import { ls } from "../services/ls.js";
