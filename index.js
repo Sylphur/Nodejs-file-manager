@@ -11,10 +11,10 @@ const rl = readline.createInterface({input, output});
 
 function main () {
   rl.question(`You are currently in: ${process.cwd()} \n`,)
-    .then((input) => {
+    .then(async (input) => {
       if (input === '.exit') rl.close();
       else {
-        inputHandle(input);
+        await inputHandle(input);
         main();
       }
   })

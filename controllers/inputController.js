@@ -1,7 +1,8 @@
 import { cd } from "../services/cd.js";
+import { ls } from "../services/ls.js";
 import { up } from "../services/up.js";
 
-export function inputHandle (input) {
+export async function inputHandle (input) {
   const formattedInput = input.trim();
   switch (formattedInput.split(' ')[0]) {
     case 'up': {
@@ -10,6 +11,10 @@ export function inputHandle (input) {
     }
     case 'cd': {
       cd(input);
+      break;
+    }
+    case 'ls': {
+      await ls();
       break;
     }
     default:
