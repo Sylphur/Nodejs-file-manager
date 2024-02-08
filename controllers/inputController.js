@@ -3,6 +3,7 @@ import { cat } from "../services/cat.js";
 import { cd } from "../services/cd.js";
 import { compress } from "../services/compress.js";
 import { cp } from "../services/cp.js";
+import { decompress } from "../services/decompress.js";
 import { calculateHash } from "../services/hash.js";
 import { ls } from "../services/ls.js";
 import { mv } from "../services/mv.js";
@@ -60,6 +61,10 @@ export async function inputHandle (input) {
     }
     case 'compress': {
       await compress(formattedInput)
+      break;
+    }
+    case 'decompress': {
+      await decompress(formattedInput)
       break;
     }
     default:
