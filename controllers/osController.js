@@ -1,7 +1,3 @@
-import path from "path";
-import fs from "fs";
-import fsp from "fs/promises";
-import stream from "stream/promises";
 import os from 'os'
 
 export async function osController (input) {

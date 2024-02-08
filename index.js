@@ -1,7 +1,5 @@
 import { inputHandle } from "./controllers/inputController.js";
 import { getUsername } from "./utils/getUsername.js";
-
-import path from "path";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 
