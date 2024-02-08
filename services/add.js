@@ -5,6 +5,7 @@ export async function add (input) {
   try {
     const fileName = input.slice(4).trim();
     fileHandle = await fs.open(fileName, 'wx');
+    console.log(`File ${fileName} has been created`);
   } catch (error) {
     console.error('Operation failed: ',error.message);
   } finally {

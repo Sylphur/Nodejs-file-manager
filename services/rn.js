@@ -15,7 +15,7 @@ export async function rn (input) {
     if (fs.existsSync(newPathToFile)) throw new Error('invalid input (file or directory is already exists)')
 
     await fsp.rename(pathToFile, newPathToFile);
-    console.log(`File ${pathToFile} have been renamed to ${newPathToFile} `);
+    console.log(`File ${pathToFile} has been renamed to ${newPathToFile} `);
   } catch (error) {
     console.error('Operation failed: ', error.message);
   }

@@ -1,4 +1,4 @@
-import path, { join } from "path";
+import path from "path";
 import fs from "fs";
 import fsp from "fs/promises";
 import stream from "stream/promises";
@@ -17,7 +17,7 @@ export async function cp (input) {
 
     const fileName = path.basename(pathToFile);
     const readableStream = fs.createReadStream(relativePathToFile, {'encoding': 'utf-8'});
-    const writableStreamFile = await fsp.open(join(relativePathToCopyFile, fileName), 'wx');
+    const writableStreamFile = await fsp.open(path.join(relativePathToCopyFile, fileName), 'wx');
     const writableStream = writableStreamFile.createWriteStream(writableStreamFile);
     await stream.pipeline(readableStream, writableStream);
     console.log('Done!');
