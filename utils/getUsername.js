@@ -7,7 +7,7 @@ export function getUsername(args) {
       process.exit(0);
     }
     if (username.length > 1) {
-      console.log("Please enter only one username");
+      console.error("Please enter only one username");
       process.exit(0);
     }
     const user = username[0].split('=')[1];
