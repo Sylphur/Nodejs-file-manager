@@ -7,7 +7,7 @@ const username = getUsername(process.argv);
 
 const rl = readline.createInterface({input, output});
 
-function main () {
+(function main () {
   rl.question(`You are currently in: ${process.cwd()} \n`,)
     .then(async (input) => {
       if (input === '.exit') rl.close();
@@ -16,8 +16,7 @@ function main () {
         main();
       }
   })
-}
-main();
+})();
 
 rl.on('close', () => {
   console.log(`Thank you for using File Manager, ${username}, goodbye!`);
